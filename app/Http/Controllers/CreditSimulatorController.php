@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreditSimulatorRequest;
-use App\Models\Produto;
-use Illuminate\Http\Request;
+use App\Service\SimulatorCacheService;
 
 class CreditSimulatorController extends Controller
 {
     public function simulator(CreditSimulatorRequest $request)
     {
-        dd(Produto::get());
-        dd($request->validated());
+        $dbParams = SimulatorCacheService::createParamsCache();
+        $requestParamsValidated = $request->validated();
+
+        dd($dbParams, $requestParamsValidated);
     }
 }
