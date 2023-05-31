@@ -19,9 +19,9 @@ class SimulatorPriceService
             $amortizationAmount = $numberInstallments - $amountFee;
             $portion = [
                 'numero' => $i,
-                'valorAmortizacao' => $amortizationAmount,
-                'valorJuros' => $amountFee,
-                'valorPrestacao' => $numberInstallments
+                'valorAmortizacao' => number_format($amortizationAmount, 2, ',', '.'),
+                'valorJuros' => number_format($amountFee, 2, ',', '.'),
+                'valorPrestacao' => number_format($numberInstallments, 2, ',', '.')
             ];
             $portions[] = $portion;
             $amount -= $amortizationAmount;

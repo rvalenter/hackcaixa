@@ -20,9 +20,9 @@ class SimulatorSacService
 
             $portion = [
                 'numero' => $i,
-                'valorAmortizacao' => $numberInstallments,
-                'valorJuros' => $amountFee,
-                'valorPrestacao' => $amortizationAmount
+                'valorAmortizacao' => number_format($numberInstallments, 2, ',', '.'),
+                'valorJuros' => number_format($amountFee, 2, ',', '.'),
+                'valorPrestacao' => number_format($amortizationAmount, 2, ',', '.')
             ];
 
             $portions[] = $portion;

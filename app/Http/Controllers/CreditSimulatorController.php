@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreditSimulatorRequest;
-use App\Service\SimulatorCacheService;
+use App\Http\Resources\CreditSimulatorResource;
 use App\Service\SimulatorPriceService;
 use App\Service\SimulatorSacService;
 use App\Service\SimulatorTargetService;
@@ -16,8 +16,13 @@ class CreditSimulatorController extends Controller
         $targetSimulator = SimulatorTargetService::target($userDataValidated);
         $price = SimulatorPriceService::calc($userDataValidated, $targetSimulator);
         $sac = SimulatorSacService::calc($userDataValidated, $targetSimulator);
+        //alimentar o event hub
+        //escrever testes
 
-
-        dd($price, $sac);
+        return new CreditSimulatorResource([
+            'targetSimulator' => $targetSimulator,
+            'price' => $price,
+            'sac' => $sac
+        ]);
     }
 }
