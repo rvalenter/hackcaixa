@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Service\AzureBusService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,8 +15,10 @@ class CreditSimulatorResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-//        return parent::toArray($request);
-        return $this->parseSimulator($request);
+        $simulation = $this->parseSimulator($request);
+        $this->eventHub($simulation);
+
+        return $simulation;
     }
 
     public function parseSimulator(Request $request)
@@ -36,8 +39,8 @@ class CreditSimulatorResource extends JsonResource
         ];
     }
 
-    public function eventHub()
+    public function eventHub(array $simulation)
     {
-
+        AzureBusService::bus(json_encode($simulation));
     }
 }
