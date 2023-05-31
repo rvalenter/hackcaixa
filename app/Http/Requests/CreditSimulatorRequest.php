@@ -27,7 +27,7 @@ class CreditSimulatorRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'valorDesejado.required' => 'O valor desejado deve ser preenchido.',
