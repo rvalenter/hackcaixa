@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class SimulatorTargetService
 {
-    public static function target(array $userDataValidated): array
+    public static function target(array $userDataValidated)
     {
         return SimulatorCacheService::createParamsCache()
             ->where('VR_MINIMO', '<=', $userDataValidated['valorDesejado'])

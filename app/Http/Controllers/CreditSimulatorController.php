@@ -14,15 +14,10 @@ class CreditSimulatorController extends Controller
     {
         $userDataValidated = $request->validated();
         $targetSimulator = SimulatorTargetService::target($userDataValidated);
-        $price = SimulatorPriceService::calc($userDataValidated, $targetSimulator);
-        $sac = SimulatorSacService::calc($userDataValidated, $targetSimulator);
-        //alimentar o event hub
-        //escrever testes
 
         return new CreditSimulatorResource([
             'targetSimulator' => $targetSimulator,
-            'price' => $price,
-            'sac' => $sac
+            'userDataValidated' => $userDataValidated,
         ]);
     }
 }
