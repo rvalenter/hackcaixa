@@ -23,7 +23,8 @@ class AppTest extends TestCase
             'prazo' => 5
         ]);
 
-        $response->assertStatus(200);
+        $response->assertSuccessful();
+
         $response->assertJsonStructure([
             'codigoProduto',
             'descricaoProduto',

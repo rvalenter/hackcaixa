@@ -68,6 +68,15 @@ Certifique-se de que seu ambiente atenda aos seguintes requisitos:
     - Content-Type: application/json
     - X-Requested-With: XMLHttpRequest
 
+## Testando
+
+- Para executar os testes execute: php artisan test
+- Os testes simularão uma chamada na API, passando os cabeçalho obrigatorios e os dados básicos de uma solicitação.
+- validarão:
+  - estrutura do envelope de saída
+  - calculo
+  - status
+
 ## Contribua com o projeto
 
 Agradeço por sua contribuição com o projeto: [API HACKCAIXA_SIMULADOR_EMPRESTIMOS](https://github.com/rvalenter/hackcaixa).
