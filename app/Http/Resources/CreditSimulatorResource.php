@@ -2,12 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Service\AppRedirectService;
 use App\Service\AzureBusService;
 use App\Service\SimulatorPriceService;
 use App\Service\SimulatorSacService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Response;
 
 class CreditSimulatorResource extends JsonResource
 {
@@ -27,7 +27,7 @@ class CreditSimulatorResource extends JsonResource
             return $simulation;
         }
 
-        abort(422, 'Não há produtos para as condições estipuladas');
+        return AppRedirectService::noResultsForParams();
     }
 
     public function parseSimulator()
@@ -50,6 +50,8 @@ class CreditSimulatorResource extends JsonResource
 
     public function eventHub(array $simulation)
     {
-        AzureBusService::bus(json_encode($simulation));
+        if (env('EVENTHUB_STORE')) {
+            AzureBusService::bus(json_encode($simulation));
+        }
     }
 }

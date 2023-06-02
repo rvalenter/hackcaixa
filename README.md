@@ -8,6 +8,8 @@ retornar um envelope JSON contendo o nome do produto validado e o resultado da s
 envelope JSON no Eventhub. A gravação no Eventhub permite a integração com a área de relacionamento com o cliente da 
 empresa para execução de estratégias negociais com base na interação do cliente.</p>
 
+- Github: [Link](https://github.com/rvalenter/hackcaixa)
+
 ## Funcionalidades
 
 ### POST /simulador
@@ -41,7 +43,7 @@ Certifique-se de que seu ambiente atenda aos seguintes requisitos:
   - Session PHP Extension
   - Tokenizer PHP Extension
   - XML PHP Extension
-- Eventhub (para gravação do envelope JSON)
+- Eventhub (para gravar envelope JSON)
 - Composer
 
 ## Instalação
@@ -84,3 +86,7 @@ Agradeço por sua contribuição com o projeto: [API HACKCAIXA_SIMULADOR_EMPREST
 ## Licença
  
 Este projeto está sob [MIT license](https://opensource.org/licenses/MIT).
+
+## Siga
+
+- Github: [Raphael Reges Valente](https://github.com/rvalenter)
